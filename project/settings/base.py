@@ -3,7 +3,7 @@ import os
 import sys
 
 
-gettext = lambda s: s
+_ = lambda s: s
 
 PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROJECT_NAME = os.path.basename(PROJECT_DIR)
@@ -32,7 +32,7 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = [
-    ('en', gettext('English')),
+    ('en', _('English')),
 ]
 
 LOCALE_PATHS = (
@@ -125,6 +125,7 @@ WSGI_APPLICATION = PROJECT_NAME + '.wsgi.application'
 
 INSTALLED_APPS = (
     'djangocms_admin_style',
+    'admin_shortcuts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -176,13 +177,28 @@ ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
+# django_admin_shortcuts
+ADMIN_SHORTCUTS_SETTINGS = {
+    'hide_app_list': False,
+    'open_new_window': False,
+}
+
+ADMIN_SHORTCUTS = [
+    {'shortcuts': [
+        {'url': '/', 'open_new_window': True},
+        {'url_name': 'admin:cms_page_changelist', 'title': _('Pages')},
+        {'url_name': 'admin:filer_folder_changelist', 'title': _('Files')},
+        {'url_name': 'admin:auth_user_changelist', 'title': _('Users')}]
+    },
+]
+
 # cms
 CMS_SEO_FIELDS = True
 CMS_HIDE_UNTRANSLATED = True
 CMS_REDIRECTS = True
 
 CMS_TEMPLATES = (
-    ('default.html', gettext('Default')),
+    ('default.html', _('Default')),
 )
 
 CMS_PLACEHOLDER_CONF = {
@@ -196,7 +212,7 @@ CMS_PLACEHOLDER_CONF = {
             'FilerVideoPlugin',
         ],
         'text_only_plugins': ['LinkPlugin'],
-        'name': gettext('Content'),
+        'name': _('Content'),
     },
 }
 
