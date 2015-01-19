@@ -164,10 +164,12 @@ MIGRATION_MODULES = {
     'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
 }
 
+# auth
+LOGIN_URL = '/admin/login/'
 
 # rosetta
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
-# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 
 # crispy_forms
