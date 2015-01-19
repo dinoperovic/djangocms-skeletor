@@ -1,0 +1,203 @@
+// =====================================================================
+// Vars and functions
+// =====================================================================
+
+// Colors.
+$black: #000;
+$white: #fff;
+
+// Vendorize.
+@mixin vendorize($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
+}
+
+// Responsive.
+$width-tablet: 768px;
+$width-desktop: 992px;
+$width-large-desktop: 1200px;
+
+@mixin responsive($media) {
+  @if $media == large-desktop {
+    @media only screen and (min-width: $width-large-desktop) { @content; }
+  } @else if $media == desktop {
+    @media only screen and (min-width: $width-desktop) { @content; }
+  } @else if $media == tablet {
+    @media only screen and (min-width: $width-tablet) { @content; }
+  } @else if $media == mobile {
+    @media only screen and (max-width: $width-tablet) { @content; }
+  }
+}
+
+// =====================================================================
+// Base
+// =====================================================================
+
+html,
+body {
+  background: $white;
+  color: $black;
+}
+
+// =====================================================================
+// Text
+// =====================================================================
+
+// Headings.
+@for $i from 1 to 6 {
+  h#{$i},
+  .h#{$i} {
+    margin-top: 0;
+  }
+}
+
+// Links
+a {
+  text-decoration: underline;
+}
+
+// =====================================================================
+// Modules
+// =====================================================================
+
+
+// =====================================================================
+// Layout
+// =====================================================================
+
+
+// =====================================================================
+// Helpers
+// =====================================================================
+
+// Remove flicker.
+.no-flick {
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: translate3d(0, 0, 0);
+  transition: translate3d(0, 0, 0);
+}
+
+// Margin and padding clearers.
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+@each $direction in top, right, bottom, left {
+  .no-margin-#{$direction} {
+    margin-#{$direction}: 0;
+  }
+
+  .no-padding-#{$direction} {
+    padding-#{$direction}: 0;
+  }
+}
+
+// Breaks.
+.break,
+%break {
+  clear: both;
+  display: block;
+  height: 1px;
+}
+
+@for $i from 1 to 13 {
+  $j: $i * 5;
+
+  .break#{$j} {
+    @extend %break;
+    height: #{$j}px;
+  }
+}
+
+
+// =====================================================================
+// Responsive
+// =====================================================================
+
+// Tablets.
+@media only screen and (min-width: 768px) {}
+
+// Desktops.
+@media only screen and (min-width: 992px) {}
+
+// Large desktops.
+@media only screen and (min-width: 1200px) {}
+
+// High resolution devices.
+@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {}
+
+
+// =====================================================================
+// Print
+// =====================================================================
+
+@media print {
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: $black !important;
+    text-shadow: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:visited {
+      text-decoration: underline;
+    }
+
+    &[href]:after {
+      content: ' (' attr(href) ')';
+    }
+  }
+
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+
+  // Don't show links for images, or javascript/internal links.
+  a {
+    &[href^="javascript:"]:after,
+    &[href^="#"]:after {
+      content: '';
+    }
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

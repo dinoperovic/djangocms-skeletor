@@ -1,0 +1,17 @@
+.DS_Store
+.sass-cache
+*.swp
+*.pyc
+/*.pid
+/*.sock
+/core
+/dev.db
+/.coverage
+/cover/
+/coverage.xml
+/nosetests.xml
+/project/locale/
+/project/static/
+/project/media/
+/project/settings/local.py
+/project/settings/secret.py

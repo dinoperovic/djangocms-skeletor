@@ -1,0 +1,51 @@
+{% load cms_tags sekizai_tags staticfiles %}
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{% page_attribute "page_title" %}</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% addtoblock "css" %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static "site/css/main.css" %}">
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="{% static "site/js/plugins.js" %}"></script>
+    <script src="{% static "site/js/main.js" %}"></script>
+{% endaddtoblock %}
+
+{% render_block "css" %}
+<script src="{% static "site/js/vendor/modernizr-2.8.3.min.js" %}"></script>
+</head>
+<body>
+{% cms_toolbar %}
+<!--[if lt IE 8]>
+    <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+    </p>
+<![endif]-->
+
+<div class="base-header">
+    {% block base_header %}{% endblock %}
+</div>
+
+<div class="base-content">
+    {% block base_content %}{% endblock %}
+    {{ request.site }}
+</div>
+
+<div class="base-footer">
+    {% block base_footer %}{% endblock %}
+</div>
+
+{% render_block "js" %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+-r test.txt
+
+# Debug toolbar.
+django-debug-toolbar==1.2.2
+# sqlparse==0.1.14
+
+# Command line extensions.
+django-extensions==1.4.9
+
+# Modular source code checker.
+flake8==2.3.0
+# pyflakes==0.8.1
+# pep8==1.5.7
+# mccabe==0.2.1
+
+# WSGI utility library.
+Werkzeug==0.9.6
+
+# Interactive python shell.
+ipython==2.3.1
+# gnureadline==6.3.3
