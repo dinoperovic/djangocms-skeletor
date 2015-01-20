@@ -1,40 +1,34 @@
 {% load cms_tags sekizai_tags staticfiles %}
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{% page_attribute "page_title" %}</title>
-<meta name="description" content="">
+<title>{% block title %}{% page_attribute "page_title" %}{% endblock %} - {{ request.site.name }}</title>
+<meta name="description" content="{% block meta_description %}{% page_attribute "meta_description" %}{% endblock %}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="{% block link_canonical %}http{% if request.is_secure %}s{% endif %}://{{ request.site }}{{ request.path }}{% endblock %}">
 
 {% addtoblock "css" %}
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{% static "site/css/main.css" %}">
+<link href="{% static "site/css/style.css" %}" rel="stylesheet">
 {% endaddtoblock %}
 
 {% addtoblock "js" %}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="{% static "site/js/plugins.js" %}"></script>
 <script src="{% static "site/js/main.js" %}"></script>
 {% endaddtoblock %}
 
-{% addtoblock "head_js" %}
-<script src="{% static "site/js/vendor/modernizr-2.8.3.min.js" %}"></script>
-{% endaddtoblock %}
-
-{% render_block "css" %}
-{% render_block "head_js" %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+{% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
 </head>
 <body>
 {% cms_toolbar %}
 <!--[if lt IE 8]>
-    <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser.
-        Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
-    </p>
+<p class="browsehappy">
+You are using an <strong>outdated</strong> browser.
+Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+</p>
 <![endif]-->
 
 <div class="base-header">
@@ -43,13 +37,14 @@
 
 <div class="base-content">
     {% block base_content %}{% endblock %}
-    {{ request.site }}
 </div>
 
 <div class="base-footer">
     {% block base_footer %}{% endblock %}
 </div>
 
-{% render_block "js" %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+{% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
 </body>
 </html>

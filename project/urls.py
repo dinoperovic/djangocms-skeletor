@@ -6,8 +6,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sites.models import Site
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.utils.html import mark_safe
+from django.contrib.sitemaps.views import sitemap
 from django.utils.translation import ugettext_lazy as _
+
+from cms.sitemaps import CMSSitemap
 
 try:
     from solid_i18n.urls import solid_i18n_patterns as i18n_patterns
@@ -19,11 +21,15 @@ except ImportError:
 site = Site.objects.get_current()
 admin.site.site_header = _('%s administration' % site.name)
 
+# Sitemaps.
+sitemaps = {
+    'cmspages': CMSSitemap,
+}
+
 
 urlpatterns = patterns(
     '',
-    url(r'^jsi18n/(?P<packages>\S+?)/$',
-        'django.views.i18n.javascript_catalog'),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}),
 )
 
 urlpatterns += staticfiles_urlpatterns()

@@ -54,6 +54,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 
@@ -133,6 +134,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'cms',
     'mptt',
     'menus',
@@ -147,8 +149,9 @@ INSTALLED_APPS = (
     'cmsplugin_filer_image',
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
-    'crispy_forms',
+    'compressor',
     'hvad',
+    'crispy_forms',
     'rosetta',
 )
 

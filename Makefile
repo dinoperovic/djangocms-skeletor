@@ -5,7 +5,7 @@ FLAKE8_OPTS=--exclude=.git,migrations --max-complexity=10
 
 .PHONY: all test coverage clean lint ensure_virtualenv local-settings \
 	reqs/dev reqs/test reqs/prod dev-setup test-setup dev-update \
-	prod-update update runs shell restart deploy messages sass-watch
+	prod-update update runs shell restart deploy messages compass-watch
 
 all: coverage
 
@@ -83,5 +83,5 @@ deploy: ensure_virtualenv
 messages:
 	cd project && django-admin makemessages -a
 
-sass-watch:
-	cd project/staticfiles/site/css && sass --watch main.scss:main.css --style compressed
+compass-watch:
+	cd project/staticfiles && compass watch site

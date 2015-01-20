@@ -1,0 +1,57 @@
+// Color classes.
+@each $name, $color in $color-map {
+  .#{$name} {
+    color: $color;
+  }
+
+  .bg-#{$name} {
+    background-color: $color;
+  }
+
+  .border-#{$name} {
+    border-color: $color;
+  }
+}
+
+// Remove flicker.
+.no-flick {
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: translate3d(0, 0, 0);
+  transition: translate3d(0, 0, 0);
+}
+
+// Margin and padding clearers.
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+@each $direction in top, right, bottom, left {
+  .no-margin-#{$direction} {
+    margin-#{$direction}: 0;
+  }
+
+  .no-padding-#{$direction} {
+    padding-#{$direction}: 0;
+  }
+}
+
+// Breaks.
+.break,
+%break {
+  clear: both;
+  display: block;
+  height: 1px;
+}
+
+@for $i from 1 to 13 {
+  $j: $i * 5;
+
+  .break#{$j} {
+    @extend %break;
+    height: #{$j}px;
+  }
+}

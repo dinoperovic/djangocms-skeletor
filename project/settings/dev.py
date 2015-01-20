@@ -19,7 +19,7 @@ CACHES = {
     'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'},
 }
 
-# set up Django Debug Toolbar if installed.
+# set up Django Debug Toolbar if installed and enabled.
 if os.environ.get('USE_DEBUG_TOOLBAR', 'true') == 'true':
     try:
         import debug_toolbar  # noqa

@@ -41,6 +41,9 @@ cmsplugin-filer==0.10.1
 # Versioning.
 django-reversion==1.8.5
 
+# Static file combiner.
+django-compressor==1.4
+
 # Bootstrap forms.
 django-crispy-forms==1.4.0
 

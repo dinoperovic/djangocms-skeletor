@@ -1,0 +1,16 @@
+// Headings.
+@for $i from 1 to 6 {
+  h#{$i},
+  .h#{$i} {
+    font-size: nth($h-size-list, $i);
+  }
+}
+
+// Links
+a {
+  text-decoration: underline;
+
+  &:hover {
+    color: $hover-color;
+  }
+}
