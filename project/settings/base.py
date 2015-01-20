@@ -153,6 +153,7 @@ INSTALLED_APPS = (
     'hvad',
     'crispy_forms',
     'rosetta',
+    'utils',
 )
 
 # Set apps correct migrations path.
