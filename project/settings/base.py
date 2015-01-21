@@ -70,7 +70,6 @@ def ensure_secret_key_file():
             f.write("# -*- coding: utf-8 -*-\n")
             f.write("SECRET_KEY = " + repr(secret_key) + "\n")
 
-# Import the secret key
 ensure_secret_key_file()
 from secret import SECRET_KEY  # noqa
 
@@ -192,8 +191,7 @@ ADMIN_SHORTCUTS = [
         {'url': '/', 'open_new_window': True},
         {'url_name': 'admin:cms_page_changelist', 'title': _('Pages')},
         {'url_name': 'admin:filer_folder_changelist', 'title': _('Files')},
-        {'url_name': 'admin:auth_user_changelist', 'title': _('Users')}]
-    },
+        {'url_name': 'admin:auth_user_changelist', 'title': _('Users')}]},
 ]
 
 # cms
