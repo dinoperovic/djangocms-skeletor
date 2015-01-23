@@ -1,4 +1,4 @@
-// Color classes.
+// Color classes
 @each $name, $color in $color-map {
   .#{$name} {
     color: $color;
@@ -13,14 +13,14 @@
   }
 }
 
-// Remove flicker.
+// Remove flicker
 .no-flick {
   -webkit-backface-visibility: hidden;
   -webkit-transition: translate3d(0, 0, 0);
   transition: translate3d(0, 0, 0);
 }
 
-// Margin and padding clearers.
+// Margin and padding clearers
 .no-margin {
   margin: 0;
 }
@@ -39,7 +39,7 @@
   }
 }
 
-// Breaks.
+// Breaks
 .break,
 %break {
   clear: both;

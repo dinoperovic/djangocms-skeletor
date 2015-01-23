@@ -10,7 +10,7 @@
 <link rel="canonical" href="{% block link_canonical %}http{% if request.is_secure %}s{% endif %}://{{ request.site }}{{ request.path }}{% endblock %}">
 
 {% addtoblock "css" %}
-<link href="{% static "site/css/style.css" %}" rel="stylesheet">
+<link href="{% static "site/css/main.css" %}" rel="stylesheet">
 {% endaddtoblock %}
 
 {% addtoblock "js" %}

@@ -1,4 +1,8 @@
-// Target bootstrap 3 media device.
+// Responsive mixin
+$width-tablet: 768px;
+$width-desktop: 992px;
+$width-large-desktop: 1200px;
+
 @mixin responsive($media) {
   @if $media == large-desktop {
     @media only screen and (min-width: $width-large-desktop) { @content; }
@@ -12,7 +16,7 @@
 }
 
 
-// Vendorize.
+// Vendorize mixin
 @mixin vendorize($property, $value) {
   -webkit-#{$property}: $value;
   -moz-#{$property}: $value;
