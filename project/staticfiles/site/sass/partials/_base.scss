@@ -14,8 +14,7 @@ $color-map: (
 );
 
 // Fonts.
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext");
-$font-stack: 'Open Sans', Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 
 // Headings.
 $h1-size: 28px;

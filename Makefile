@@ -84,4 +84,4 @@ messages:
 	cd project && django-admin makemessages -a
 
 compass-watch:
-	cd project/staticfiles && compass watch site
+	cd project/staticfiles/site && compass watch
