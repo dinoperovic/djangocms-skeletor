@@ -168,8 +168,10 @@ MIGRATION_MODULES = {
     'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
 }
 
+
 # auth
 LOGIN_URL = '/admin/login/'
+
 
 # rosetta
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
@@ -193,6 +195,7 @@ ADMIN_SHORTCUTS = [
         {'url_name': 'admin:filer_folder_changelist', 'title': _('Files')},
         {'url_name': 'admin:auth_user_changelist', 'title': _('Users')}]},
 ]
+
 
 # cms
 CMS_SEO_FIELDS = True
