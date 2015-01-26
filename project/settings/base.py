@@ -59,16 +59,14 @@ STATICFILES_FINDERS = (
 
 
 def ensure_secret_key_file():
-    # Checks that secret.py exists in settings dir. If not, creates one
-    # with a random generated SECRET_KEY setting.
     secret_path = project_path('settings', 'secret.py')
     if not os.path.exists(secret_path):
         from django.utils.crypto import get_random_string
         secret_key = get_random_string(
             50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
         with open(secret_path, 'w') as f:
-            f.write("# -*- coding: utf-8 -*-\n")
-            f.write("SECRET_KEY = " + repr(secret_key) + "\n")
+            f.write('# -*- coding: utf-8 -*-\n')
+            f.write('SECRET_KEY = ' + repr(secret_key) + '\n')
 
 ensure_secret_key_file()
 from secret import SECRET_KEY  # noqa
@@ -182,7 +180,7 @@ ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
-# django_admin_shortcuts
+# admin_shortcuts
 ADMIN_SHORTCUTS_SETTINGS = {
     'hide_app_list': False,
     'open_new_window': False,
