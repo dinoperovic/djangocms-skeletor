@@ -14,13 +14,3 @@ $width-large-desktop: 1200px;
     @media only screen and (max-width: $width-tablet) { @content; }
   }
 }
-
-
-// Vendorize mixin
-@mixin vendorize($property, $value) {
-  -webkit-#{$property}: $value;
-  -moz-#{$property}: $value;
-  -ms-#{$property}: $value;
-  -o-#{$property}: $value;
-  #{$property}: $value;
-}

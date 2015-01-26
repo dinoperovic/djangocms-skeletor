@@ -1,8 +1,14 @@
-html,
+html {
+  font-size: 87.5%;
+  line-height: 1.42857em;
+}
+
 body {
-  background: #fff;
+  background-color: #fff;
   color: #444;
   font-family: Helvetica, sans-serif;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .browserupgrade {
@@ -12,42 +18,45 @@ body {
   padding: .2em 0;
 }
 
-h1,
-.h1, h2,
-.h2, h3,
-.h3, h4,
-.h4, h5,
-.h5 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: #222;
 }
 
-h1,
-.h1 {
-  font-size: 28px;
+h1, .h1 {
+  font-size: 2em;
+  line-height: 1.42857em;
 }
 
-h2,
-.h2 {
-  font-size: 20px;
+h2, .h2 {
+  font-size: 1.42857em;
+  line-height: 1.5em;
 }
 
-h3,
-.h3 {
-  font-size: 18px;
+h3, .h3 {
+  font-size: 1.28571em;
+  line-height: 1.66667em;
 }
 
-h4,
-.h4 {
-  font-size: 16px;
+h4, .h4 {
+  font-size: 1.14286em;
+  line-height: 1.25em;
 }
 
-h5,
-.h5 {
-  font-size: 14px;
+h5, .h5 {
+  font-size: 1em;
+  line-height: 1.42857em;
+}
+
+h6, .h6 {
+  font-size: 0.85714em;
+  line-height: 1.66667em;
 }
 
 a {
+  text-decoration: none;
   color: #222;
+}
+a:hover, a:focus {
   text-decoration: underline;
 }
 a:hover {

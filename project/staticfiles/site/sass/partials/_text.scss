@@ -3,21 +3,16 @@
   color: $h-color;
 }
 
-@for $i from 1 to 6 {
-  h#{$i},
-  .h#{$i} {
+@for $i from 1 through 6 {
+  h#{$i}, .h#{$i} {
     @extend %heading;
-    font-size: nth($h-size-list, $i);
+    @include adjust-font-size-to(nth($h-font-size-list, $i));
   }
 }
 
 
 // Links
 a {
-  color: $link-color;
-  text-decoration: underline;
-
-  &:hover {
-    color: $link-hover-color;
-  }
+  @include hover-link;
+  @include link-colors($link-color, $link-hover-color);
 }
