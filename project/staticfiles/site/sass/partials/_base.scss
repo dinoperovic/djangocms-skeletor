@@ -23,7 +23,7 @@ $darker-primary-color: $dark-grey;
 $lighter-primary-color: $light-grey;
 
 $link-color: $darker-primary-color;
-$link-hover-color: $lighter-primary-color;
+$link-hover-color: $primary-color;
 
 
 // Fonts
@@ -72,8 +72,7 @@ body {
 
 // Browser Upgrade Prompt (html5boilerplate)
 .browserupgrade {
-  background: $light-grey;
-  color: $black;
-  margin: .2em 0;
-  padding: .2em 0;
+  background: $lighter-primary-color;
+  margin-bottom: rhythm();
+  padding: rhythm() 15px;
 }

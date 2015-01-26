@@ -13,9 +13,8 @@ body {
 
 .browserupgrade {
   background: #ccc;
-  color: #000;
-  margin: .2em 0;
-  padding: .2em 0;
+  margin-bottom: 1.42857em;
+  padding: 1.42857em 15px;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
@@ -60,7 +59,7 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 a:hover {
-  color: #ccc;
+  color: #444;
 }
 
 .black {
