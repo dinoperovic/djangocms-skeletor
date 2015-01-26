@@ -1,16 +1,23 @@
 // Headings
+%heading {
+  color: $h-color;
+}
+
 @for $i from 1 to 6 {
   h#{$i},
   .h#{$i} {
+    @extend %heading;
     font-size: nth($h-size-list, $i);
   }
 }
 
+
 // Links
 a {
+  color: $link-color;
   text-decoration: underline;
 
   &:hover {
-    color: $hover-color;
+    color: $link-hover-color;
   }
 }

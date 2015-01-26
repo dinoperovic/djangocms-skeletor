@@ -1,6 +1,6 @@
 {% load cms_tags sekizai_tags staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,22 +25,19 @@
 <body>
 {% cms_toolbar %}
 <!--[if lt IE 8]>
-<p class="browsehappy">
-You are using an <strong>outdated</strong> browser.
-Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
-</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <div class="base-header">
-    {% block base_header %}{% endblock %}
+  {% block base_header %}{% endblock %}
 </div>
 
 <div class="base-content">
-    {% block base_content %}{% endblock %}
+  {% block base_content %}{% endblock %}
 </div>
 
 <div class="base-footer">
-    {% block base_footer %}{% endblock %}
+  {% block base_footer %}{% endblock %}
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

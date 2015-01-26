@@ -1,8 +1,24 @@
 html,
 body {
   background: #fff;
-  color: #000;
+  color: #444;
   font-family: Helvetica, sans-serif;
+}
+
+.browserupgrade {
+  background: #ccc;
+  color: #000;
+  margin: .2em 0;
+  padding: .2em 0;
+}
+
+h1,
+.h1, h2,
+.h2, h3,
+.h3, h4,
+.h4, h5,
+.h5 {
+  color: #222;
 }
 
 h1,
@@ -31,10 +47,11 @@ h5,
 }
 
 a {
+  color: #222;
   text-decoration: underline;
 }
 a:hover {
-  color: #000;
+  color: #ccc;
 }
 
 .black {
@@ -47,6 +64,42 @@ a:hover {
 
 .border-black {
   border-color: #000;
+}
+
+.dark-grey {
+  color: #222;
+}
+
+.bg-dark-grey {
+  background-color: #222;
+}
+
+.border-dark-grey {
+  border-color: #222;
+}
+
+.grey {
+  color: #444;
+}
+
+.bg-grey {
+  background-color: #444;
+}
+
+.border-grey {
+  border-color: #444;
+}
+
+.light-grey {
+  color: #ccc;
+}
+
+.bg-light-grey {
+  background-color: #ccc;
+}
+
+.border-light-grey {
+  border-color: #ccc;
 }
 
 .white {
