@@ -45,9 +45,7 @@
 // Breaks
 .break,
 %break {
-  clear: both;
-  display: block;
-  height: 1px;
+  @include clearfix;
 }
 
 @for $i from 1 to 13 {

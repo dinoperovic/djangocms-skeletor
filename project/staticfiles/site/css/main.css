@@ -181,9 +181,8 @@ a:hover {
 .break50,
 .break55,
 .break60 {
-  clear: both;
-  display: block;
-  height: 1px;
+  overflow: hidden;
+  *zoom: 1;
 }
 
 .break5 {
