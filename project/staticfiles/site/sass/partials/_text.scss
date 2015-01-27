@@ -14,5 +14,5 @@
 // Links
 a {
   @include hover-link;
-  @include link-colors($link-color, $link-hover-color);
+  @include link-colors($base-link-color, $hover-link-color);
 }

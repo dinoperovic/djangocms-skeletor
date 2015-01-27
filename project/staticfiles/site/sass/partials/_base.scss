@@ -18,19 +18,19 @@ $color-map: (
 
 $bg-color: $white;
 
-$primary-color: $grey;
-$darker-primary-color: $dark-grey;
-$lighter-primary-color: $light-grey;
+$base-color: $grey;
+$darker-color: $dark-grey;
+$lighter-color: $light-grey;
 
-$link-color: $darker-primary-color;
-$link-hover-color: $primary-color;
+$base-link-color: $darker-color;
+$hover-link-color: $base-color;
 
 
 // Fonts
 $font-family: Helvetica, sans-serif;
 
 // Headings
-$h-color: $darker-primary-color;
+$h-color: $darker-color;
 
 $h1-font-size: 28px;
 $h2-font-size: 20px;
@@ -63,7 +63,7 @@ $duration-slow: 1s;
 // Base styles
 body {
   background-color: $bg-color;
-  color: $primary-color;
+  color: $base-color;
   font-family: $font-family;
   font-size: inherit;
   line-height: inherit;
@@ -72,7 +72,7 @@ body {
 
 // Browser Upgrade Prompt (html5boilerplate)
 .browserupgrade {
-  background: $lighter-primary-color;
+  background: $lighter-color;
   margin-bottom: rhythm();
   padding: rhythm() 15px;
 }
