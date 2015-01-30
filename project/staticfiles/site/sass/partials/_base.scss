@@ -1,38 +1,12 @@
-@import 'compass';
+// Typography
+$base-font-family: Helvetica, sans-serif;
+$heading-font-family: $base-font-family;
 
 
-// Colors
-$black: #000;
-$dark-grey: #222;
-$grey: #444;
-$light-grey: #ccc;
-$white: #fff;
+// Font Sizes
+$base-font-size: 1em;
 
-$color-map: (
-  'black': $black,
-  'dark-grey': $dark-grey,
-  'grey': $grey,
-  'light-grey': $light-grey,
-  'white': $white,
-);
-
-$bg-color: $white;
-
-$base-color: $grey;
-$darker-color: $dark-grey;
-$lighter-color: $light-grey;
-
-$base-link-color: $darker-color;
-$hover-link-color: $base-color;
-
-
-// Fonts
-$font-family: Helvetica, sans-serif;
-
-// Headings
-$h-color: $darker-color;
-
-$h1-font-size: 28px;
+$h1-font-size: floor(($base-font-size * 2.6));
 $h2-font-size: 20px;
 $h3-font-size: 18px;
 $h4-font-size: 16px;
@@ -44,17 +18,33 @@ $h-font-size-list: (
   $h4-font-size, $h5-font-size, $h6-font-size);
 
 
-// Compass Vertical Rhythm
-$base-font-size: 14px;
-$base-line-height: 20px;
-$round-to-nearest-half-line: true;
-@include establish-baseline;
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
 
 
-// Durations
-$duration-fast: .3s;
-$duration-normal: .5s;
-$duration-slow: 1s;
+// Colors
+$black: #000;
+$dark-grey: #333;
+$grey: #999;
+$light-grey: #ddd;
+$white: #fff;
+$blue: #477dca;
+
+$color-map: (
+  'black': $black,
+  'dark-grey': $dark-grey,
+  'grey': $grey,
+  'light-grey': $light-grey,
+  'white': $white,
+  'blue': $blue,
+);
+
+
+// Font Colors
+$base-background-color: $white;
+$base-font-color: $dark-grey;
+$action-color: $blue;
 
 
 @import 'modules/all';
@@ -62,17 +52,17 @@ $duration-slow: 1s;
 
 // Base styles
 body {
-  background-color: $bg-color;
-  color: $base-color;
-  font-family: $font-family;
-  font-size: inherit;
-  line-height: inherit;
+  background-color: $base-background-color;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
 }
 
 
 // Browser Upgrade Prompt (html5boilerplate)
 .browserupgrade {
-  background: $lighter-color;
-  margin-bottom: rhythm();
-  padding: rhythm() 15px;
+  background: $light-grey;
+  margin-bottom: 1.333em;
+  padding: 1.333em 15px;
 }

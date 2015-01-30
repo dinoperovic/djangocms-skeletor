@@ -1,0 +1,18 @@
+// Headings
+%heading {
+  color: $base-font-color;
+  line-height: $heading-line-height;
+}
+
+@for $i from 1 through 6 {
+  h#{$i}, .h#{$i} {
+    @extend %heading;
+    font-size: nth($h-font-size-list, $i);
+  }
+}
+
+
+// Links
+a {
+  color: $action-color;
+}

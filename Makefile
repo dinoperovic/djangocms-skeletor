@@ -83,5 +83,5 @@ deploy: ensure_virtualenv
 messages:
 	cd project && django-admin makemessages -a
 
-compass-watch:
-	cd project/staticfiles/site && compass watch
+sass-watch:
+	cd project/staticfiles/site && sass --watch sass:css

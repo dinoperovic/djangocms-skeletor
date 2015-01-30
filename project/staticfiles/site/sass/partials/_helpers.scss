@@ -45,7 +45,11 @@
 // Breaks
 .break,
 %break {
-  @include clearfix;
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
 }
 
 @for $i from 1 to 13 {

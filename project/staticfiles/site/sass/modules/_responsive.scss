@@ -23,10 +23,6 @@ $screen-md-max: ($screen-lg-min - 1);
       @media (max-width: $screen-xs-max) { @content; }
     } @else if $media == phone or $media == mobile {
       @content;
-    } @else if $media == non-retina {
-      @media screen and (-webkit-max-device-pixel-ratio: 1) { @content; }
-    } @else if $media == retina {
-      @media screen and (-webkit-min-device-pixel-ratio: 2) { @content; }
     }
   }
 }
