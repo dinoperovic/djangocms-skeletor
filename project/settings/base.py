@@ -171,6 +171,13 @@ MIGRATION_MODULES = {
 LOGIN_URL = '/admin/login/'
 
 
+# compressor
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+
+
 # rosetta
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
