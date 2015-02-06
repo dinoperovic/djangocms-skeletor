@@ -10,11 +10,12 @@ FLAKE8_OPTS=--exclude=.git,migrations --max-complexity=10
 all: coverage
 
 test:
-	$(MANAGE) test --where=. --where=project/apps $(SETTINGS) --with-xunit -s
+	$(MANAGE) test --where=. --where=project/apps/$(app) $(SETTINGS) \
+		--nologcapture --with-xunit -s
 
 coverage:
-	$(MANAGE) test --where=. --where=project/apps $(SETTINGS) \
-		--with-xcoverage --with-xunit --cover-html  --cover-erase
+	$(MANAGE) test --where=. --where=project/apps/$(app) $(SETTINGS) \
+		--nologcapture --with-xunit --with-xcoverage --cover-html --cover-erase
 
 clean:
 	rm -rf .coverage cover nosetests.xml coverage.xml
