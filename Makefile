@@ -10,10 +10,10 @@ FLAKE8_OPTS=--exclude=.git,migrations --max-complexity=10
 all: coverage
 
 test:
-	$(MANAGE) test --where=. $(SETTINGS) --with-xunit -s
+	$(MANAGE) test --where=. --where=project/apps $(SETTINGS) --with-xunit -s
 
 coverage:
-	$(MANAGE) test --where=. $(SETTINGS) \
+	$(MANAGE) test --where=. --where=project/apps $(SETTINGS) \
 		--with-xcoverage --with-xunit --cover-html  --cover-erase
 
 clean:

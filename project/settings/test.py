@@ -10,22 +10,18 @@ DATABASES = {
     }
 }
 
+
 CACHES = {
     'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'},
 }
 
-try:
-    import django_nose  # noqa
-    INSTALLED_APPS += (
-        'django_nose',
-    )
-    TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-    PROJECT_APPS = [app for app in INSTALLED_APPS
-                    if os.path.exists(project_path('apps', app))]
-    if PROJECT_APPS:
-        NOSE_ARGS = ['--cover-package=' + ','.join(PROJECT_APPS)]
-except ImportError:
-    pass
+
+INSTALLED_APPS += ('django_nose', )
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+PROJECT_APPS = [app for app in INSTALLED_APPS
+                if os.path.exists(project_path('apps', app))]
+if PROJECT_APPS:
+    NOSE_ARGS = ['--cover-package=' + ','.join(PROJECT_APPS)]
 
 
 PASSWORD_HASHERS = (
