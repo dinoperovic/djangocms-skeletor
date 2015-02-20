@@ -212,7 +212,7 @@ CMS_TEMPLATES = (
 )
 
 CMS_PLACEHOLDER_CONF = {
-    'content': {
+    'body': {
         'plugins': [
             'TextPlugin',
             'FilerFilePlugin',
@@ -222,7 +222,7 @@ CMS_PLACEHOLDER_CONF = {
             'FilerVideoPlugin',
         ],
         'text_only_plugins': ['LinkPlugin'],
-        'name': _('Content'),
+        'name': _('Body'),
     },
 }
 

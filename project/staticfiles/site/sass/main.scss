@@ -1,9 +1,2 @@
-// Modules and variables
-@import 'partials/base';
-
-
-// Partials
-@import 'partials/typography';
-@import 'partials/layout';
-@import 'partials/components';
-@import 'partials/helpers';
+// Modules
+@import "modules/browserupgrade.scss";

@@ -18,8 +18,6 @@
 <script src="{% static "site/js/main.js" %}"></script>
 {% endaddtoblock %}
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
 </head>
 <body>
@@ -28,20 +26,9 @@
 <p class="browserupgrade">{% blocktrans %}You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.{% endblocktrans %}</p>
 <![endif]-->
 
-<div class="base-header">
-  {% block base_header %}{% endblock %}
-</div>
-
-<div class="base-content">
-  {% block base_content %}{% endblock %}
-</div>
-
-<div class="base-footer">
-  {% block base_footer %}{% endblock %}
-</div>
+{% block content %}{% endblock %}
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 {% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
 </body>
 </html>
