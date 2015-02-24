@@ -85,4 +85,4 @@ messages:
 	cd project && django-admin makemessages -a
 
 sass-watch:
-	cd project/staticfiles/site && sass --watch sass:css
+	cd project/staticfiles/site && sass --watch sass:css -E "UTF-8"
