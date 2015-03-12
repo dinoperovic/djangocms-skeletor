@@ -17,12 +17,15 @@ def project_path(*args):
 sys.path.insert(0, project_path('apps'))
 
 
+SITE_ID = 1
+
 ADMINS = (
     # ('Admin', 'admin@example.com'),
 )
 MANAGERS = ADMINS
 
-SITE_ID = 1
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 LANGUAGE_CODE = 'en'
@@ -31,9 +34,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-LANGUAGES = [
+LANGUAGES = (
     ('en', _('English')),
-]
+)
 
 LOCALE_PATHS = (
     project_path('locale'),
