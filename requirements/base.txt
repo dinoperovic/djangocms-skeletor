@@ -44,6 +44,11 @@ django-reversion==1.8.5
 # Static file combiner
 django-compressor==1.4
 
+# Html minifier
+django-htmlmin==0.7.0
+# beautifulsoup4==4.3.2
+# argparse==1.3.0
+
 # Bootstrap forms
 django-crispy-forms==1.4.0
 
