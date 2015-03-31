@@ -29,7 +29,7 @@ djangocms-text-ckeditor==2.4.3
 djangocms-link==1.5
 
 # Filer
-django-filer==0.9.8
+django-filer==0.9.9
 # easy-thumbnails==2.2
 # django-polymorphic==0.6.1
 # Unidecode==0.04.17
