@@ -65,3 +65,10 @@ django-rosetta==0.7.4
 
 # Admin shortcuts
 django-admin-shortcuts==1.2.5
+
+# Social authentication.
+python-social-auth==0.2.3
+# oauthlib==0.7.2
+# requests-oauthlib==0.4.2
+# PyJWT==1.0.1
+# python-openid==2.2.5

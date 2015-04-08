@@ -39,5 +39,6 @@ urlpatterns += i18n_patterns(
     '',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^translate/', include('rosetta.urls')),
+    url(r'^user/', include('social.apps.django_app.urls', namespace='social')),
     url(r'^', include('cms.urls')),
 )
