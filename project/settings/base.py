@@ -157,7 +157,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
     'compressor',
-    'hvad',
+    'parler',
     'crispy_forms',
     'rosetta',
     'utils',
