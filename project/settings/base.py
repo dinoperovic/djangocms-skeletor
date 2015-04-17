@@ -158,7 +158,6 @@ INSTALLED_APPS = (
     'cmsplugin_filer_video',
     'compressor',
     'parler',
-    'crispy_forms',
     'rosetta',
     'utils',
 )
@@ -199,10 +198,6 @@ COMPRESS_CSS_FILTERS = [
 # rosetta
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
-
-
-# crispy_forms
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 # admin_shortcuts
