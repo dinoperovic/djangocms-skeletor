@@ -176,6 +176,12 @@ MIGRATION_MODULES = {
 }
 
 
+# parler
+PARLER_LANGUAGES = {
+    1: tuple({'code': x[0]} for x in LANGUAGES),
+}
+
+
 # auth, social
 LOGIN_REDIRECT_URL = '/admin/'
 LOGIN_URL = '/admin/login/'
