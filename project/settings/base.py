@@ -194,6 +194,9 @@ COMPRESS_CSS_FILTERS = [
     'compressor.filters.cssmin.CSSMinFilter',
 ]
 
+# htmlmin
+EXCLUDE_FROM_MINIFYING = (r'^admin/', r'^translate/')
+
 
 # rosetta
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
