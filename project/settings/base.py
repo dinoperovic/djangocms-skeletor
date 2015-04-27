@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'menus',
     'sekizai',
     'reversion',
+    'treebeard',
     'djangocms_text_ckeditor',
     'djangocms_link',
     'filer',
