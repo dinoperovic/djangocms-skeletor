@@ -3,7 +3,7 @@ MySQL-python
 pytz
 dj-database-url
 Pillow
-django-cms
+django-cms==3.0.13
 djangocms-text-ckeditor
 djangocms-link
 django-filer
