@@ -4,6 +4,7 @@ pytz
 dj-database-url
 Pillow
 django-cms==3.0.13
+django-treebeard
 djangocms-text-ckeditor
 djangocms-link
 django-filer
