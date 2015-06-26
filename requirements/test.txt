@@ -1,4 +1,4 @@
 -r base.txt
 
-django-nose
-nosexcover
+django-nose==1.4
+nosexcover==1.0.10
