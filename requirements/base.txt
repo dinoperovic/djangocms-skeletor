@@ -1,4 +1,4 @@
-Django=>1.8.3,<1.9
+Django>=1.8.3,<1.9
 
 pytz==2015.4
 MySQL-python==1.2.5
@@ -10,7 +10,6 @@ django-reversion==1.8.7
 django-filer==0.9.11
 cmsplugin-filer==0.10.1
 djangocms-text-ckeditor==2.5.3
-djangocms-link==1.6.2
 
 solid-i18n==1.1.0
 django-compressor==1.5

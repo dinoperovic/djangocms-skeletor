@@ -10,11 +10,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.utils.translation import ugettext_lazy as _
 
 from cms.sitemaps import CMSSitemap
-
-try:
-    from solid_i18n.urls import solid_i18n_patterns as i18n_patterns
-except ImportError:
-    from django.conf.urls.i18n import i18n_patterns
+from solid_i18n.urls import solid_i18n_patterns as i18n_patterns
 
 
 # Set admin site header.

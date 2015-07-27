@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from .base import *  # noqa
+
 import os
 
 
@@ -16,6 +19,7 @@ CACHES = {
 }
 
 
+# Setup django-nose as test runner
 INSTALLED_APPS += ('django_nose', )
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 PROJECT_APPS = [app for app in INSTALLED_APPS

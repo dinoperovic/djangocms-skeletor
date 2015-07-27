@@ -19,17 +19,6 @@ def env_setting(key, default=''):
     return os.environ.get(key, default)
 
 
-def ensure_secret_key_file():
-    secret_path = project_path('settings', 'secret.py')
-    if not os.path.exists(secret_path):
-        from django.utils.crypto import get_random_string
-        secret_key = get_random_string(
-            50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
-        with open(secret_path, 'w') as f:
-            f.write('# -*- coding: utf-8 -*-\n')
-            f.write('SECRET_KEY = ' + repr(secret_key) + '\n')
-
-
 # Insert apps dir into sys path
 sys.path.insert(0, project_path('apps'))
 
@@ -39,6 +28,17 @@ ADMINS = (('Admin', 'admin@example.com'), )
 MANAGERS = ADMINS
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+
+def ensure_secret_key_file():
+    secret_path = project_path('settings', 'secret.py')
+    if not os.path.exists(secret_path):
+        from django.utils.crypto import get_random_string
+        secret_key = get_random_string(
+            50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
+        with open(secret_path, 'w') as f:
+            f.write('# -*- coding: utf-8 -*-\n\n')
+            f.write('SECRET_KEY = ' + repr(secret_key) + '\n')
 
 
 ensure_secret_key_file()
@@ -65,12 +65,14 @@ INSTALLED_APPS = (
     'reversion',
     'treebeard',
     'djangocms_text_ckeditor',
-    'djangocms_link',
     'filer',
     'easy_thumbnails',
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_image',
-    'cmsplugin_filer_video',
+    # 'cmsplugin_filer_file',
+    # 'cmsplugin_filer_folder',
+    # 'cmsplugin_filer_image',
+    # 'cmsplugin_filer_link',
+    # 'cmsplugin_filer_teaser',
+    # 'cmsplugin_filer_video',
     'compressor',
     'parler',
     'rosetta',
@@ -96,14 +98,8 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
+    'solid_i18n.middleware.SolidLocaleMiddleware',
 )
-
-
-try:
-    import solid_i18n  # noqa
-    MIDDLEWARE_CLASSES += ('solid_i18n.middleware.SolidLocaleMiddleware',)
-except ImportError:
-    MIDDLEWARE_CLASSES += ('django.middleware.locale.LocaleMiddleware',)
 
 
 # urls, application
@@ -219,10 +215,12 @@ CMS_PLACEHOLDER_CONF = {
         'plugins': [
             'TextPlugin',
             'FilerFilePlugin',
+            'FilerFolderPlugin',
             'FilerImagePlugin',
+            'FilerTeaserPlugin',
             'FilerVideoPlugin',
         ],
-        'text_only_plugins': ['LinkPlugin'],
+        'text_only_plugins': ['FilerLinkPlugin'],
         'name': _('Body'),
     },
 }
@@ -231,15 +229,28 @@ CMS_PLACEHOLDER_CONF = {
 # djangocms_text_ckeditor
 CKEDITOR_SETTINGS = {
     'language': 'en',
+    'toolbar_CMS': [
+        ['Undo', 'Redo'],
+        ['cmsplugins', '-', 'ShowBlocks'],
+        ['Format', 'Styles'],
+        ['PasteText', 'PasteFromWord'],
+        ['Maximize', ''],
+        '/',
+        ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat'],
+        ['Link', 'Unlink'],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+        ['Table', 'HorizontalRule'],
+        ['NumberedList', 'BulletedList', '-', 'Blockquote'],
+        ['Source']
+    ],
     'skin': 'moono',
-    'toolbar': 'CMS',
 }
+TEXT_SAVE_IMAGE_FUNCTION = (
+    'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin')
 
 
 # filer
 FILER_ALLOW_REGULAR_USERS_TO_ADD_ROOT_FOLDERS = True
-TEXT_SAVE_IMAGE_FUNCTION = (
-    'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin')
 
 
 # easy_thumbnails
