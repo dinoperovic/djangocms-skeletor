@@ -1,29 +1,19 @@
 MANAGE=python manage.py
-SETTINGS=--settings=project.settings.test
 
-FLAKE8_OPTS=--exclude=.git,migrations --max-complexity=10
 
-.PHONY: all test coverage clean lint ensure_virtualenv local-settings \
+.PHONY: test clean lint ensure_virtualenv local-settings \
 	reqs/dev reqs/test reqs/prod dev-setup test-setup dev-update \
-	prod-update update runs shell restart deploy messages compass-watch
-
-all: coverage
+	prod-update update runs shell restart deploy messages
 
 test:
-	$(MANAGE) test --where=. --where=project/apps/$(app) $(SETTINGS) \
-		--nologcapture --with-xunit -s
-
-coverage:
-	$(MANAGE) test --where=. --where=project/apps/$(app) $(SETTINGS) \
-		--nologcapture --with-xunit --with-xcoverage --cover-html --cover-erase
+	$(MANAGE) test --settings=project.settings.test
 
 clean:
-	rm -rf .coverage cover nosetests.xml coverage.xml
 	rm -rf project/static/CACHE
 	find . -name '*.pyc' -exec rm '{}' ';'
 
 lint:
-	flake8 $(FLAKE8_OPTS) .
+	flake8 --exclude=.git,migrations --max-complexity=10 .
 
 ensure_virtualenv:
 	@if [ -z $$VIRTUAL_ENV ]; then \
@@ -33,8 +23,7 @@ ensure_virtualenv:
 
 local-settings:
 	@if [ ! -f project/settings/local.py ]; then \
-		echo '# -*- coding: utf-8 -*-\nfrom .dev import *  # noqa' \
-		> project/settings/local.py; \
+		echo 'from .dev import *  # noqa' > project/settings/local.py; \
 		echo "Created project/settings/local.py"; \
 		else \
 			echo "project/settings/local.py already exists"; \
@@ -79,6 +68,7 @@ restart:
 deploy: ensure_virtualenv
 	git pull
 	$(MAKE) prod-update
+	$(MAKE) messages
 	$(MAKE) restart
 
 messages:

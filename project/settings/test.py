@@ -14,6 +14,11 @@ DATABASES = {
 }
 
 
+# Static, media
+MEDIA_ROOT = project_path('media')
+STATIC_ROOT = project_path('static')
+
+
 CACHES = {
     'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'},
 }
