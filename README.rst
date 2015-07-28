@@ -55,6 +55,9 @@ You can then run ``make messages`` from your project root to update.
 The ``project/locale`` directory is in the ``.gitignore`` file, so you'll have to
 create it separately on your production server.
 
+To translate your project on the web, you can use already setup `djagno-rosetta <https://github.com/mbi/django-rosetta>`_.
+Just navigate to ``http://localhost:8000/translate/``
+
 
 =====
 Tests
