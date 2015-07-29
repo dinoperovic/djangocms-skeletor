@@ -1,6 +1,6 @@
-###################
-Django CMS Skeletor
-###################
+##################
+djangocms-skeletor
+##################
 
 Django CMS Skeletor is a boilerplate django project with `django CMS <http://django-cms.org>`_
 already installed, along side some other useful apps.
