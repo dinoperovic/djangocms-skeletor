@@ -7,11 +7,7 @@ import sys
 
 
 if __name__ == '__main__':
-    if not os.path.exists(os.path.join('project', 'settings', 'local.py')):
-        sys.exit('You must configure your local settings in a '
-                 '"project/settings/local.py" file.')
-
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings.local')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
 
     from django.core.management import execute_from_command_line
 
