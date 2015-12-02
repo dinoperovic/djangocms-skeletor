@@ -189,10 +189,10 @@ PARLER_LANGUAGES = {
 LOGIN_REDIRECT_URL = '/admin/'
 LOGIN_URL = '/admin/login/'
 LOGOUT_URL = '/admin/logout/'
-AUTHENTICATION_BACKENDS = (
+AUTHENTICATION_BACKENDS = [
     'social.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-)
+]
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
