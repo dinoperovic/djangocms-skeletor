@@ -24,7 +24,7 @@ sys.path.insert(0, project_path('apps'))
 
 
 SITE_ID = 1
-ADMINS = (('Admin', 'admin@example.com'), )
+ADMINS = [('Admin', 'admin@example.com')]
 MANAGERS = ADMINS
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
@@ -46,7 +46,7 @@ from secret import SECRET_KEY  # noqa
 
 
 # Application definition
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'djangocms_admin_style',
     'admin_shortcuts',
     'django.contrib.admin',
@@ -77,7 +77,7 @@ INSTALLED_APPS = (
     'parler',
     'rosetta',
     'utils',
-)
+]
 
 
 MIGRATION_MODULES = {
@@ -90,10 +90,11 @@ MIGRATION_MODULES = {
 }
 
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'django.middleware.gzip.GZipMiddleware',
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,7 +102,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
@@ -110,12 +110,25 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.language.LanguageCookieMiddleware',
     'cms.middleware.utils.ApphookReloadMiddleware',
     'solid_i18n.middleware.SolidLocaleMiddleware',
-)
+]
 
 
 # urls, application
 ROOT_URLCONF = 'project.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
+
+
+# Password validation
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.'
+             'UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.'
+             'MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.'
+             'CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.'
+             'NumericPasswordValidator'},
+]
 
 
 TEMPLATES = [
@@ -149,21 +162,21 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-LOCALE_PATHS = (project_path('locale'), )
-LANGUAGES = (
+LOCALE_PATHS = [project_path('locale')]
+LANGUAGES = [
     ('en', _('English')),
-)
+]
 
 
 # Static, media
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATICFILES_DIRS = (project_path('staticfiles'), )
-STATICFILES_FINDERS = (
+STATICFILES_DIRS = [project_path('staticfiles')]
+STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
-)
+]
 
 
 # parler
@@ -192,7 +205,7 @@ COMPRESS_CSS_FILTERS = [
 
 
 # htmlmin
-EXCLUDE_FROM_MINIFYING = (r'^admin/', r'^translate/')
+EXCLUDE_FROM_MINIFYING = [r'^admin/', r'^translate/']
 
 
 # rosetta
@@ -218,9 +231,9 @@ ADMIN_SHORTCUTS = [
 CMS_SEO_FIELDS = True
 CMS_HIDE_UNTRANSLATED = True
 CMS_REDIRECTS = True
-CMS_TEMPLATES = (
+CMS_TEMPLATES = [
     ('default.html', _('Default')),
-)
+]
 CMS_PLACEHOLDER_CONF = {
     'body': {
         'plugins': [
@@ -256,8 +269,8 @@ CKEDITOR_SETTINGS = {
     ],
     'skin': 'moono',
 }
-TEXT_SAVE_IMAGE_FUNCTION = (
-    'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin')
+TEXT_SAVE_IMAGE_FUNCTION = \
+    'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
 
 
 # filer
