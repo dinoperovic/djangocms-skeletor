@@ -91,6 +91,7 @@ MIGRATION_MODULES = {
 
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
@@ -110,6 +111,7 @@ MIDDLEWARE_CLASSES = [
     'cms.middleware.language.LanguageCookieMiddleware',
     'cms.middleware.utils.ApphookReloadMiddleware',
     'solid_i18n.middleware.SolidLocaleMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 
