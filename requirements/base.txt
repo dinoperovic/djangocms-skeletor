@@ -1,20 +1,20 @@
-Django>=1.8.3,<1.9
+Django==1.9.5
 
 pytz
 MySQL-python==1.2.5
-dj-database-url==0.4.0
-Pillow==3.1.0
+dj-database-url==0.4.1
+Pillow==3.2.0
 
-django-cms==3.2.1
-django-reversion==1.9.3
-django-filer==1.1.0
+django-cms==3.2.3
+djangocms-text-ckeditor==2.9.1
+django-filer==1.1.1
 cmsplugin-filer==1.0.1
-djangocms-text-ckeditor==2.8.1
+django-reversion==1.10.1
 
-solid-i18n==1.1.0
-django-compressor==1.6
-django-htmlmin==0.9.0
-django-rosetta==0.7.8
-django-admin-shortcuts==1.2.6
-python-social-auth==0.2.14
-django-parler==1.6
+solid-i18n==1.2.0
+django-compressor==2.0
+django-htmlmin==0.9.1
+django-rosetta==0.7.11
+django-admin-shortcuts==1.2.7
+python-social-auth==0.2.16
+django-parler==1.6.2
