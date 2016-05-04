@@ -1,4 +1,4 @@
-Django==1.9.5
+Django==1.9.6
 
 pytz
 MySQL-python==1.2.5
