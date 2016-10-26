@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'social.apps.django_app.default',
     'cms',
     'mptt',
     'menus',
@@ -92,7 +91,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
-    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
@@ -137,8 +135,6 @@ TEMPLATES = [
                 'django.core.context_processors.media',
                 'django.core.context_processors.static',
                 'django.core.context_processors.tz',
-                'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect',
                 'cms.context_processors.cms_settings',
                 'sekizai.context_processors.sekizai',
             ],
@@ -176,16 +172,13 @@ PARLER_LANGUAGES = {
 }
 
 
-# auth, social
+# auth
 LOGIN_REDIRECT_URL = '/admin/'
 LOGIN_URL = '/admin/login/'
 LOGOUT_URL = '/admin/logout/'
 AUTHENTICATION_BACKENDS = [
-    'social.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 ]
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
 
 # compressor
