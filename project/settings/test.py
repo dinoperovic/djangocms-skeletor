@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from .base import *  # noqa
+from .dev import *  # noqa
 
 import os
 
@@ -13,16 +13,9 @@ DATABASES = {
     }
 }
 
-
 # Static, media
 MEDIA_ROOT = project_path('media')
 STATIC_ROOT = project_path('static')
-
-
-CACHES = {
-    'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'},
-}
-
 
 # Setup django-nose as test runner
 INSTALLED_APPS += ('django_nose', )
