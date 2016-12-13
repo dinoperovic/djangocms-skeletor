@@ -1,18 +1,9 @@
-Django==1.9.10
-
-pytz
-Pillow
-MySQL-python
+django-configurations==2.0
+django-dotenv==1.4.1
 dj-database-url==0.4.1
 
 django-cms==3.4.1
-django-classy-tags==0.8.0
-django-formtools==1.0
-django-sekizai==0.10.0
-django-treebeard==4.0.1
-djangocms-admin-style==1.2.6
-
-djangocms-text-ckeditor==3.3.0
+djangocms-text-ckeditor==3.3.1
 django-filer==1.2.5
 cmsplugin-filer==1.1.3
 django-reversion==1.10.2
