@@ -1,5 +1,6 @@
 .DS_Store
 .sass-cache
+.env
 *.sw[op]
 *.pyc
 __pycache__/
