@@ -16,7 +16,6 @@ class Common(Configuration):
     Common project settings
     """
     SECRET_KEY = values.SecretValue()
-
     SITE_ID = values.IntegerValue(1)
 
     # Application definition
@@ -222,9 +221,7 @@ class Development(Common):
     DEBUG = values.BooleanValue(True)
     ALLOWED_HOSTS = ['*']
     INTERNAL_IPS = ['127.0.0.1']
-
     EMAIL = values.EmailURLValue('console://')
-
     CACHES = values.CacheURLValue('dummy://')
 
     INSTALLED_APPS = Common.INSTALLED_APPS + ['django_extensions']
@@ -251,9 +248,7 @@ class Staging(Common):
     """
     DEBUG = values.BooleanValue(False)
     ALLOWED_HOSTS = values.ListValue([])
-
     EMAIL = values.EmailURLValue('dummy://')
-
     CACHES = values.CacheURLValue('locmem://')
 
     # Static files
