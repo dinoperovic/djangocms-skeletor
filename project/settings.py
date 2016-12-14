@@ -13,15 +13,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class Common(Configuration):
     """
-    Common project settings.
+    Common project settings
     """
     SECRET_KEY = values.SecretValue()
 
-    DEBUG = values.BooleanValue(False)
+    SITE_ID = values.IntegerValue(1)
 
-    SITE_ID = 1
-
-    # Application definition.
+    # Application definition
     INSTALLED_APPS = [
         'djangocms_admin_style',
         'admin_shortcuts',
@@ -53,7 +51,7 @@ class Common(Configuration):
         'rosetta',
     ]
 
-    MIDDLEWARE = [
+    MIDDLEWARE_CLASSES = [
         'django.middleware.cache.UpdateCacheMiddleware',
         'htmlmin.middleware.HtmlMinifyMiddleware',
         'django.middleware.security.SecurityMiddleware',
@@ -118,7 +116,7 @@ class Common(Configuration):
     USE_I18N = True
     USE_L10N = True
     USE_TZ = True
-    LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
+    LOCALE_PATHS = values.ListValue([os.path.join(BASE_DIR, 'locale')])
 
     # Static files
     STATIC_URL = '/static/'
@@ -219,41 +217,48 @@ class Common(Configuration):
 
 class Development(Common):
     """
-    The in-development settings.
+    The in-development settings
     """
+    DEBUG = values.BooleanValue(True)
     ALLOWED_HOSTS = ['*']
-
     INTERNAL_IPS = ['127.0.0.1']
 
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL = values.EmailURLValue('console://')
 
-    INSTALLED_APPS = Common.INSTALLED_APPS + [
-        'debug_toolbar',
-        'django_extensions',
-    ]
+    CACHES = values.CacheURLValue('dummy://')
 
-    MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + Common.MIDDLEWARE
-
-    CACHES = {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'}}
+    INSTALLED_APPS = Common.INSTALLED_APPS + ['django_extensions']
 
     # Static files
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_ROOT = values.PathValue(os.path.join(BASE_DIR, 'public/media'), check_exists=False)
+    STATIC_ROOT = values.PathValue(os.path.join(BASE_DIR, 'public/static'), check_exists=False)
 
     # debug_toolbar
-    DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
+    DEBUG_TOOLBAR = values.BooleanValue(DEBUG)
+
+    @classmethod
+    def post_setup(cls):
+        super(Development, cls).post_setup()
+        # Activate django-debug-toolbar
+        if cls.DEBUG_TOOLBAR:
+            cls.INSTALLED_APPS += ['debug_toolbar']
+            cls.MIDDLEWARE_CLASSES += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 
 
 class Staging(Common):
     """
-    The in-staging settings.
+    The in-staging settings
     """
-    ALLOWED_HOSTS = []
+    DEBUG = values.BooleanValue(False)
+    ALLOWED_HOSTS = values.ListValue([])
 
-    CACHES = {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}
+    EMAIL = values.EmailURLValue('dummy://')
 
-    # Static, media
-    MEDIA_ROOT = os.path.join(os.path.expanduser('~'), 'public', 'media')
-    STATIC_ROOT = os.path.join(os.path.expanduser('~'), 'public', 'static')
+    CACHES = values.CacheURLValue('locmem://')
+
+    # Static files
+    MEDIA_ROOT = values.PathValue('~/public/media')
+    STATIC_ROOT = values.PathValue('~/public/static')
 
     # Security
     SESSION_COOKIE_SECURE = values.BooleanValue(True)
@@ -269,5 +274,5 @@ class Staging(Common):
 
 class Production(Staging):
     """
-    The in-production settings.
+    The in-production settings
     """

@@ -7,14 +7,14 @@
 <title>{% block title %}{% page_attribute "page_title" %}{% endblock %} - {{ request.site.name }}</title>
 <meta name="description" content="{% block meta_description %}{% page_attribute "meta_description" %}{% endblock %}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="{% block link_canonical %}http{% if request.is_secure %}s{% endif %}://{{ request.site }}{{ request.path }}{% endblock %}">
+<link rel="canonical" href="{% block link_canonical %}{{ request.scheme }}://{{ request.site }}{{ request.path }}{% endblock %}">
 
 {% addtoblock "css" %}
-<link href="{% static "site/css/main.css" %}" rel="stylesheet">
+<link href="{% static "css/main.css" %}" rel="stylesheet">
 {% endaddtoblock %}
 
 {% addtoblock "js" %}
-<script src="{% static "site/js/main.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
 {% endaddtoblock %}
 
 {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
@@ -27,7 +27,7 @@
 
 {% block base_content %}{% endblock %}
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 {% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
 </body>
 </html>

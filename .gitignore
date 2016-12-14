@@ -1,8 +1,7 @@
-*.pyc
-*.swp
 .DS_Store
-.sass-cache
-/db.sqlite3
-/locale/
-/media/
+*.sw[op]
+*.pyc
 __pycache__/
+db.sqlite3
+/locale/
+/public/
