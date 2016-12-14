@@ -73,7 +73,7 @@ class Common(Configuration):
         'htmlmin.middleware.MarkRequestMiddleware',
     ]
 
-    ROOT_URLCONF = 'project.urls'
+    ROOT_URLCONF = '{{ project_name }}.urls'
 
     TEMPLATES = [
         {
@@ -97,7 +97,7 @@ class Common(Configuration):
         },
     ]
 
-    WSGI_APPLICATION = 'project.wsgi.application'
+    WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
     DATABASES = values.DatabaseURLValue('sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3')))
 

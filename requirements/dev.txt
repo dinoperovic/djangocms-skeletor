@@ -1,6 +1,7 @@
 -r common.txt
 
 flake8==3.0.4
+honcho==0.7.1
 django-debug-toolbar==1.6.0
 django-extensions==1.7.5
 Werkzeug==0.11.11
