@@ -14,13 +14,11 @@ env.hosts = []
 @task
 def staging():
     env.hosts = ['user@staging-server']
-    env.environment = 'staging'
 
 
 @task
 def production():
     env.hosts = ['user@production-server']
-    env.environment = 'production'
 
 
 @contextmanager
