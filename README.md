@@ -16,9 +16,20 @@ $ pip install -r requirements/dev.txt
 $ python manage.py migrate
 ```
 
-Out of the box, this project assumes SASS preprocessor is used to write CSS. To start a SASS compiler with the
-development server you can use [Honcho](https://github.com/nickstenning/honcho) wich is already installed. Simply run:
+This project assumes [SASS](http://sass-lang.com/) preprocessor is used to write CSS. To start a SASS compiler with
+the development server you can use [Honcho](https://github.com/nickstenning/honcho) wich is already installed.
+Simply run:
 
 ```bash
 $ honcho start
+```
+
+## Deployment
+
+[Fabric](http://www.fabfile.org/) can be used for deployment via git. Edit the `fabfile.py` to update hosts for
+**staging** and **production** servers and set paths the *project* and *virtualenv* on the server.
+To deploy to a production server you can then run:
+
+```bash
+$ fab production deploy
 ```

@@ -36,7 +36,7 @@ def restart():
 
 @task
 def deploy():
-    """A simple deploy task."""
+    """Deploy project via git"""
     with cd(env.project_path):
         with virtualenv():
             run('git pull')
