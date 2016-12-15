@@ -29,11 +29,6 @@ def virtualenv():
         yield
 
 
-def restart():
-    with cd(env.project_path):
-        run('touch {{ project_name }}/wsgi.py')
-
-
 @task
 def deploy():
     """Deploy project via git"""
@@ -43,5 +38,4 @@ def deploy():
             run('pip install -r requirements/production.txt')
             run('python manage.py migrate')
             run('python manage.py collectstatic --noinput')
-            run('django-admin makemessages -a')
-    restart()
+            run('touch {{ project_name }}/wsgi.py')
