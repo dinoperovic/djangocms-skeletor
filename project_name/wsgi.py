@@ -12,18 +12,11 @@ except Exception as e:
     print(e)
 
 
-ENVIRONMENT = os.getenv('ENVIRONMENT')
-
-if ENVIRONMENT == 'STAGING':
-    settings = 'staging'
-elif ENVIRONMENT == 'PRODUCTION':
-    settings = 'production'
-else:
-    settings = 'development'
-
+settings = os.getenv('ENVIRONMENT', 'development')
+assert settings in ['staging', 'production', 'development'], \
+    "ENVIRONMENT variable must be set to either staging, production or development."
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
 os.environ.setdefault('DJANGO_CONFIGURATION', settings.title())
-
 
 application = get_wsgi_application()
