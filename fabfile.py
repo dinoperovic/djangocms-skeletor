@@ -6,8 +6,8 @@ from contextlib import contextmanager
 
 from fabric.api import cd, env, prefix, run, task
 
-env.project_path = '~/webapps/{{ project_name }}'
-env.virtualenv = '~/virtualenvs/{{ project_name }}'
+env.project_path = '/path/to/webapps/{{ project_name }}'
+env.virtualenv = '/path/to/virtualenvs/{{ project_name }}'
 env.hosts = []
 
 
