@@ -8,6 +8,7 @@ from configurations import Configuration, values
 
 def _(s): return s
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
