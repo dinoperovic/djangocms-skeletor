@@ -129,7 +129,7 @@ class Common(Configuration):
     ]
 
     # parler
-    PARLER_LANGUAGES = {None: tuple({'code': x[0]} for x in LANGUAGES)}
+    PARLER_LANGUAGES = {1: tuple({'code': x[0]} for x in LANGUAGES)}
 
     # compressor
     COMPRESS_CSS_FILTERS = [
