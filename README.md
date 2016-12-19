@@ -27,7 +27,7 @@ $ honcho start
 ## Deployment
 
 [Fabric](http://www.fabfile.org/) can be used for deployment via git. Edit the `fabfile.py` to update hosts for
-**staging** and **production** servers and set paths the *project* and *virtualenv* on the server.
+**staging** and **production** servers and set paths for *project* and *virtualenv* on the server.
 To deploy to a production server you can then run:
 
 ```bash
