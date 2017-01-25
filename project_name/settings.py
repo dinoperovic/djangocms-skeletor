@@ -51,7 +51,7 @@ class Common(Configuration):
         'rosetta',
     ]
 
-    MIDDLEWARE_CLASSES = [
+    MIDDLEWARE = [
         'django.middleware.cache.UpdateCacheMiddleware',
         'htmlmin.middleware.HtmlMinifyMiddleware',
         'django.middleware.security.SecurityMiddleware',
