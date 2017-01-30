@@ -240,7 +240,7 @@ class Development(Common):
         # Activate django-debug-toolbar
         if cls.DEBUG_TOOLBAR:
             cls.INSTALLED_APPS += ['debug_toolbar']
-            cls.MIDDLEWARE_CLASSES += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+            cls.MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
 
 
 class Staging(Common):
