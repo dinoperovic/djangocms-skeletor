@@ -182,6 +182,18 @@ class Common(Configuration):
         },
     }
 
+    # easy_thumbnails
+    THUMBNAIL_HIGH_RESOLUTION = True
+    THUMBNAIL_PROCESSORS = (
+        'easy_thumbnails.processors.colorspace',
+        'easy_thumbnails.processors.autocrop',
+        'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+        'easy_thumbnails.processors.filters',
+    )
+
+    # filer
+    FILER_ALLOW_REGULAR_USERS_TO_ADD_ROOT_FOLDERS = True
+
     # djangocms_text_ckeditor
     CKEDITOR_SETTINGS = {
         'language': 'en',
@@ -202,18 +214,6 @@ class Common(Configuration):
         'skin': 'moono',
     }
     TEXT_SAVE_IMAGE_FUNCTION = 'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
-
-    # filer
-    FILER_ALLOW_REGULAR_USERS_TO_ADD_ROOT_FOLDERS = True
-
-    # easy_thumbnails
-    THUMBNAIL_HIGH_RESOLUTION = True
-    THUMBNAIL_PROCESSORS = (
-        'easy_thumbnails.processors.colorspace',
-        'easy_thumbnails.processors.autocrop',
-        'filer.thumbnail_processors.scale_and_crop_with_subject_location',
-        'easy_thumbnails.processors.filters',
-    )
 
 
 class Development(Common):
