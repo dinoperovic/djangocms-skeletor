@@ -24,6 +24,24 @@ Simply run:
 $ honcho start
 ```
 
+## Configuration
+
+Settings is managed by the [django-configurations](https://github.com/jazzband/django-configurations) project.
+This allows you to configure the settings using environment variables. For example setting `DJANGO_MEDIA_ROOT=/path/to/media`
+as an environment variable will affect the Django `MEDIA_ROOT` settings.
+
+The required settings are `ENVIRONMENT` which is either `development`, `stagging` or `production`. And ``DJANGO_SECRET_KEY``
+that comes included in `.env` file when first starting a new project.
+
+Read more about this project on [ReadTheDocs](https://django-configurations.readthedocs.io).
+
+#### Dotenv
+
+A [django-dotenv](https://github.com/jpadilla/django-dotenv) project is included to enable setting environment variables
+through the `.env` file in your project root. This file will be downloaded when starting a new project but is included
+in the `.gitignore` file. It should be unique for each of the enviromnents you install your project in.
+
+
 ## Deployment
 
 [Fabric](http://www.fabfile.org/) can be used for deployment via git. Edit the `fabfile.py` to update hosts for
