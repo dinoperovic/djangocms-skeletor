@@ -27,8 +27,8 @@ $ honcho start
 ## Configuration
 
 Settings is managed by the [django-configurations](https://github.com/jazzband/django-configurations) project.
-This allows you to configure the settings using environment variables. For example setting `DJANGO_MEDIA_ROOT=/path/to/media`
-as an environment variable will affect the Django `MEDIA_ROOT` settings.
+This allows you to configure the settings using environment variables. For example setting `DJANGO_MEDIA_ROOT='/path/to/media'`
+as an environment variable will affect the Django `MEDIA_ROOT` setting.
 
 The required settings are `ENVIRONMENT` which is either `development`, `stagging` or `production`. And ``DJANGO_SECRET_KEY``
 that comes included in `.env` file when first starting a new project.
