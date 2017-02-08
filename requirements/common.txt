@@ -15,7 +15,6 @@ djangocms-file==2.0.2
 djangocms-snippet==1.9.2
 djangocms-style==2.0.1
 djangocms-video==2.0.3
-django-reversion==2.0.8
 
 solid-i18n==1.4.0
 django-compressor==2.1

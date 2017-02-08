@@ -35,7 +35,6 @@ class Common(Configuration):
         'mptt',
         'menus',
         'sekizai',
-        'reversion',
         'treebeard',
         'filer',
         'easy_thumbnails',

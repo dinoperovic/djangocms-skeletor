@@ -1,6 +1,6 @@
 # djangocms-skeletor
 
-**A boilerplate django project with [djangoSHOP](http://www.django-shop.org) already installed.**
+**A boilerplate django project with [djangoCMS](https://www.django-cms.org) already installed.**
 
 ---
 
