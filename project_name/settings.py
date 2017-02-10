@@ -100,6 +100,8 @@ class Common(Configuration):
 
     DATABASES = values.DatabaseURLValue('sqlite:///{}'.format(os.path.join(BASE_DIR, 'db.sqlite3')))
 
+    CACHES = values.CacheURLValue('locmem://')
+
     # Authentication
     AUTH_PASSWORD_VALIDATORS = [
         {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -107,6 +109,13 @@ class Common(Configuration):
         {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
         {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
     ]
+
+    # Email
+    ADMINS = []
+    MANAGERS = []
+    EMAIL = values.EmailURLValue('console://')
+    DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+    SERVER_EMAIL = 'root@localhost'
 
     # Internationalization
     LANGUAGE_CODE = 'en'
@@ -140,8 +149,6 @@ class Common(Configuration):
     EXCLUDE_FROM_MINIFYING = [r'^admin/', r'^translate/']
 
     # rosetta
-    SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-    ROSETTA_STORAGE_CLASS = 'rosetta.storage.SessionRosettaStorage'
     ROSETTA_SHOW_AT_ADMIN_PANEL = True
 
     # admin_shortcuts
@@ -222,8 +229,6 @@ class Development(Common):
     DEBUG = values.BooleanValue(True)
     ALLOWED_HOSTS = ['*']
     INTERNAL_IPS = ['127.0.0.1']
-    EMAIL = values.EmailURLValue('console://')
-    CACHES = values.CacheURLValue('dummy://')
 
     INSTALLED_APPS = Common.INSTALLED_APPS + ['django_extensions']
 
@@ -249,8 +254,6 @@ class Staging(Common):
     """
     DEBUG = values.BooleanValue(False)
     ALLOWED_HOSTS = values.ListValue([])
-    EMAIL = values.EmailURLValue('dummy://')
-    CACHES = values.CacheURLValue('locmem://')
 
     # Static files
     MEDIA_ROOT = values.PathValue('~/public/media')
@@ -258,6 +261,7 @@ class Staging(Common):
 
     # Security
     SESSION_COOKIE_SECURE = values.BooleanValue(True)
+    CSRF_COOKIE_SECURE = values.BooleanValue(True)
     SECURE_BROWSER_XSS_FILTER = values.BooleanValue(True)
     SECURE_CONTENT_TYPE_NOSNIFF = values.BooleanValue(True)
     SECURE_HSTS_INCLUDE_SUBDOMAINS = values.BooleanValue(True)
