@@ -183,7 +183,6 @@ class Common(Configuration):
                 'StylePlugin',
                 'VideoPlayerPlugin',
             ],
-            'text_only_plugins': ['FilerLinkPlugin'],
             'name': _('Content'),
         },
     }
