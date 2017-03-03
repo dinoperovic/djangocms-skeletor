@@ -25,7 +25,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # Add django-debug-toolbar urls.
-if settings.DEBUG_TOOLBAR:
+if getattr(settings, 'DEBUG_TOOLBAR', False):
     import debug_toolbar
     urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls))]
 

@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 import os
 
 import dotenv
-from configurations.wsgi import get_wsgi_application
 
 try:
     dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
@@ -19,4 +18,5 @@ assert settings in ['staging', 'production', 'development'], \
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
 os.environ.setdefault('DJANGO_CONFIGURATION', settings.title())
 
+from configurations.wsgi import get_wsgi_application  # noqa
 application = get_wsgi_application()
