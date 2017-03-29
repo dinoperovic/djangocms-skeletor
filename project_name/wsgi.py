@@ -11,7 +11,7 @@ except Exception as e:
     print(e)
 
 
-settings = os.getenv('ENVIRONMENT', 'development')
+settings = os.getenv('ENVIRONMENT', 'production')
 assert settings in ['staging', 'production', 'development'], \
     "ENVIRONMENT variable must be set to either staging, production or development."
 
