@@ -34,5 +34,5 @@ urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^translate/', include('rosetta.urls')),
     url(r'^', include('cms.urls')),
-    prefix_default_language=False,
+    prefix_default_language=True,
 )
