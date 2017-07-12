@@ -239,8 +239,8 @@ class Development(Common):
     DEBUG_TOOLBAR = values.BooleanValue(DEBUG)
 
     @classmethod
-    def post_setup(cls):
-        super(Development, cls).post_setup()
+    def setup(cls):
+        super(Development, cls).setup()
         # Activate django-debug-toolbar
         if cls.DEBUG_TOOLBAR:
             cls.INSTALLED_APPS += ['debug_toolbar']
