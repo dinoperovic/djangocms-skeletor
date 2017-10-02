@@ -218,7 +218,7 @@ class Common(Configuration):
         ],
         'skin': 'moono',
     }
-    TEXT_SAVE_IMAGE_FUNCTION = 'cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
+    TEXT_SAVE_IMAGE_FUNCTION = 'djangocms_text_ckeditor.picture_save.create_picture_plugin'
 
 
 class Development(Common):
