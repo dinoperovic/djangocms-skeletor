@@ -1,9 +1,9 @@
 -r common.txt
 
-django-debug-toolbar==1.6.0
-django-extensions==1.7.5
-Fabric==1.13.1
-flake8==3.0.4
-honcho==0.7.1
-ipython==5.1.0
-Werkzeug==0.11.11
+django-debug-toolbar==1.9.1
+django-extensions==1.9.7
+Fabric==1.14.0
+flake8==3.5.0
+honcho==1.0.1
+ipython==5.5.0
+Werkzeug==0.12.2
