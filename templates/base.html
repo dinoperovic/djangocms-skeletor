@@ -21,13 +21,12 @@
 </head>
 <body>
 {% cms_toolbar %}
-<!--[if lt IE 8]>
+<!--[if lt IE 9]>
 <p class="browserupgrade">{% blocktrans %}You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.{% endblocktrans %}</p>
 <![endif]-->
 
 {% block base_content %}{% endblock %}
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 {% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
 </body>
 </html>
