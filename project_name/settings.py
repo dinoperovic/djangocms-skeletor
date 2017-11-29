@@ -200,22 +200,24 @@ class Common(Configuration):
     FILER_ALLOW_REGULAR_USERS_TO_ADD_ROOT_FOLDERS = True
 
     # djangocms_text_ckeditor
+    CKEDITOR_TOOLBAR = [
+        ['Undo', 'Redo'],
+        ['cmsplugins', '-', 'ShowBlocks'],
+        ['Format', 'Styles'],
+        ['PasteText', 'PasteFromWord'],
+        ['Maximize', ''],
+        '/',
+        ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat'],
+        ['Link', 'Unlink'],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+        ['Table', 'HorizontalRule'],
+        ['NumberedList', 'BulletedList', '-', 'Blockquote'],
+        ['Source']
+    ]
     CKEDITOR_SETTINGS = {
         'language': 'en',
-        'toolbar_CMS': [
-            ['Undo', 'Redo'],
-            ['cmsplugins', '-', 'ShowBlocks'],
-            ['Format', 'Styles'],
-            ['PasteText', 'PasteFromWord'],
-            ['Maximize', ''],
-            '/',
-            ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat'],
-            ['Link', 'Unlink'],
-            ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
-            ['Table', 'HorizontalRule'],
-            ['NumberedList', 'BulletedList', '-', 'Blockquote'],
-            ['Source']
-        ],
+        'toolbar_CMS': CKEDITOR_TOOLBAR,
+        'toolbar_HTMLField': CKEDITOR_TOOLBAR,
         'skin': 'moono-lisa',
     }
     TEXT_SAVE_IMAGE_FUNCTION = 'djangocms_text_ckeditor.picture_save.create_picture_plugin'
