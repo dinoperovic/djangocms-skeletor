@@ -216,7 +216,7 @@ class Common(Configuration):
             ['NumberedList', 'BulletedList', '-', 'Blockquote'],
             ['Source']
         ],
-        'skin': 'moono',
+        'skin': 'moono-lisa',
     }
     TEXT_SAVE_IMAGE_FUNCTION = 'djangocms_text_ckeditor.picture_save.create_picture_plugin'
 
