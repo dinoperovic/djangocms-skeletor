@@ -10,14 +10,14 @@ To start a new project:
 
 ```bash
 $ pip install Django==1.11.9
-$ django-admin startproject --template https://github.com/dinoperovic/djangocms-skeletor/archive/master.zip -e py,md,env project_name
+$ django-admin startproject --template https://github.com/dinoperovic/djangocms-skeletor/archive/master.zip -e py,md,env,json project_name
 $ cd project_name
 $ pip install -r requirements/dev.txt
 $ python manage.py migrate
 ```
 
-This project assumes [SASS](http://sass-lang.com/) preprocessor is used to write CSS. To start a SASS compiler with
-the development server you can use [Honcho](https://github.com/nickstenning/honcho) wich is already installed.
+This project assumes use of [Webpack](https://webpack.js.org/) to bundle and manage your static files. To start watching static files
+with Webpack along with Django development server you can use [Honcho](https://github.com/nickstenning/honcho) wich is already installed.
 Simply run:
 
 ```bash
@@ -43,6 +43,14 @@ in the `.gitignore` file. It should be unique for each of the enviromnents you i
 
 
 ## Deployment
+
+To prepare static files from Webpack for deployment, simply run:
+
+```bash
+$ npm run build
+```
+
+This will generate an output in `static/bundles/` directory so that it gets included when running `collectstatic` from Django.
 
 [Fabric](http://www.fabfile.org/) can be used for deployment via git. Edit the `fabfile.py` to update hosts for
 **staging** and **production** servers and set paths for *project* and *virtualenv* on the server.

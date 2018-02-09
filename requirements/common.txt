@@ -16,6 +16,7 @@ djangocms-snippet==1.9.2
 djangocms-style==2.0.2
 djangocms-video==2.0.4
 
+django-webpack-loader==0.5.0
 django-compressor==2.2
 django-htmlmin==0.10.0
 django-rosetta==0.8.1

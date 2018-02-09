@@ -1,4 +1,5 @@
 {% load cms_tags sekizai_tags staticfiles i18n %}
+{% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +11,7 @@
 <link rel="canonical" href="{% block link_canonical %}{{ request.scheme }}://{{ request.site }}{{ request.path }}{% endblock %}">
 
 {% addtoblock "css" %}
-<link href="{% static "css/main.css" %}" rel="stylesheet">
-{% endaddtoblock %}
-
-{% addtoblock "js" %}
-<script src="{% static "js/main.js" %}"></script>
+{% render_bundle 'main' 'css' %}
 {% endaddtoblock %}
 
 {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
@@ -26,6 +23,10 @@
 <![endif]-->
 
 {% block base_content %}{% endblock %}
+
+{% addtoblock "js" %}
+{% render_bundle 'main' 'js' %}
+{% endaddtoblock %}
 
 {% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
 </body>

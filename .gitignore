@@ -1,9 +1,10 @@
-.DS_Store
-.sass-cache
-.env
-*.sw[op]
 *.pyc
+*.sw[op]
+.DS_Store
+.env
+.sass-cache
+/locale/
+/node_modules/
+/public/
 __pycache__/
 db.sqlite3
-/locale/
-/public/

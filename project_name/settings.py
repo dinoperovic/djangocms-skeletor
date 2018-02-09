@@ -45,6 +45,7 @@ class Common(Configuration):
         'djangocms_snippet',
         'djangocms_style',
         'djangocms_video',
+        'webpack_loader',
         'compressor',
         'parler',
         'rosetta',
@@ -126,6 +127,9 @@ class Common(Configuration):
     USE_TZ = True
     LOCALE_PATHS = values.ListValue([os.path.join(BASE_DIR, 'locale')])
 
+    # parler
+    PARLER_LANGUAGES = {1: tuple({'code': x[0]} for x in LANGUAGES)}
+
     # Static files
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
@@ -136,8 +140,13 @@ class Common(Configuration):
         'compressor.finders.CompressorFinder',
     ]
 
-    # parler
-    PARLER_LANGUAGES = {1: tuple({'code': x[0]} for x in LANGUAGES)}
+    # webpack_loader
+    WEBPACK_LOADER = {
+        'DEFAULT': {
+            'BUNDLE_DIR_NAME': 'bundles/',
+            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        }
+    }
 
     # compressor
     COMPRESS_CSS_FILTERS = [
@@ -239,6 +248,13 @@ class Development(Common):
 
     # debug_toolbar
     DEBUG_TOOLBAR = values.BooleanValue(DEBUG)
+
+    @property
+    def WEBPACK_LOADER(self):
+        # Set webpack dev stats file
+        webpack = dict(Common.WEBPACK_LOADER)
+        webpack['DEFAULT']['STATS_FILE'] = os.path.join(BASE_DIR, 'webpack-stats-dev.json')
+        return webpack
 
     @classmethod
     def setup(cls):

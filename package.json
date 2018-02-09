@@ -1,0 +1,23 @@
+{
+  "name": "{{ project_name }}",
+  "description": "Project description",
+  "version": "1.0.0",
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
+    "start": "npm run dev",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-bundle-tracker": "^0.2.1",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
