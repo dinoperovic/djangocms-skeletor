@@ -12,7 +12,7 @@ djangocms-text-ckeditor==3.5.1
 djangocms-link==2.1.2
 djangocms-picture==2.0.6
 djangocms-file==2.0.2
-djangocms-snippet==1.9.2
+djangocms-snippet==2.0.0
 djangocms-style==2.0.2
 djangocms-video==2.0.4
 
