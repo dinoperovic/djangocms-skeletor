@@ -10,7 +10,7 @@
 To start a new project:
 
 ```bash
-pip install Django==1.11.9
+pip install Django==1.11.10
 django-admin startproject --template https://github.com/dinoperovic/djangocms-skeletor/archive/master.zip -e py,md,env,json project_name
 cd project_name
 pip install -r requirements/dev.txt

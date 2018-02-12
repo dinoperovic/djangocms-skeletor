@@ -1,4 +1,4 @@
-Django==1.11.9
+Django==1.11.10
 
 django-configurations==2.0
 django-dotenv==1.4.2
