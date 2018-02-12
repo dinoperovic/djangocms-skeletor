@@ -1,3 +1,4 @@
+
 # djangocms-skeletor
 
 **A boilerplate django project with [djangoCMS](https://www.django-cms.org) already installed.**
@@ -24,6 +25,12 @@ Simply run:
 ```bash
 honcho start
 ```
+
+## Webpack
+
+A basic webpack config is provided to handle common file types. Out of the box you can start writing `sass/scss` by importing files in your `assets/js/main.js` file.  [Babel](https://babeljs.io/) compiler is used so that next generation JavaScript can be used as well. Read more about configuring [Webpack](https://webpack.js.org/configuration/).
+
+For seamless integration with Django --- [django-webpack-loader](https://github.com/ezhome/django-webpack-loader) project is used.
 
 ## Configuration
 
