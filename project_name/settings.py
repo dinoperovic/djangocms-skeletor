@@ -144,7 +144,7 @@ class Common(Configuration):
     WEBPACK_LOADER = {
         'DEFAULT': {
             'BUNDLE_DIR_NAME': 'bundles/',
-            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+            'STATS_FILE': os.path.join(BASE_DIR, 'static', 'webpack-stats.json'),
         }
     }
 
@@ -253,7 +253,7 @@ class Development(Common):
     def WEBPACK_LOADER(self):
         # Set webpack dev stats file
         webpack = dict(Common.WEBPACK_LOADER)
-        webpack['DEFAULT']['STATS_FILE'] = os.path.join(BASE_DIR, 'webpack-stats-dev.json')
+        webpack['DEFAULT']['STATS_FILE'] = os.path.join(BASE_DIR, 'static', 'webpack-stats-dev.json')
         return webpack
 
     @classmethod

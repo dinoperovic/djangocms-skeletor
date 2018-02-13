@@ -86,14 +86,15 @@ if (process.env.NODE_ENV === 'development') {
   module.exports.entry = module.exports.entry.concat(['webpack-dev-server/client?http://localhost:3000'])
   module.exports.output.publicPath = 'http://localhost:3000/static/bundles/'
   module.exports.plugins = (module.exports.plugins || []).concat([
-    new BundleTracker({filename: './webpack-stats-dev.json'})
+    new BundleTracker({filename: './static/webpack-stats-dev.json'})
   ])
 }
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
+  module.exports.output.publicPath = '/static/bundles/'
   module.exports.plugins = (module.exports.plugins || []).concat([
-    new BundleTracker({filename: './webpack-stats.json'}),
+    new BundleTracker({filename: './static/webpack-stats.json'}),
     new webpack.DefinePlugin({'process.env': {NODE_ENV: '"production"'}}),
     new webpack.LoaderOptionsPlugin({minimize: true})
   ])
