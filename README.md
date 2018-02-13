@@ -1,5 +1,3 @@
-
-
 # djangocms-skeletor
 
 **A boilerplate django project with [djangoCMS](https://www.django-cms.org) already installed.**
@@ -39,9 +37,15 @@ A [django-dotenv](https://github.com/jpadilla/django-dotenv) project is included
 
 ## Webpack
 
-A basic webpack config is provided to handle common static file types. Out of the box you can start writing **SASS/SCSS** by importing files in your `assets/js/main.js` file.  [Babel](https://babeljs.io/) compiler is used so that next-gen JavaScript can be used as well. Read more about configuring [Webpack](https://webpack.js.org/configuration/).
+A basic webpack config is provided to handle common static file types. Out of the box you can start writing **SASS/SCSS** by importing files in your `assets/js/main.js` file.
+
+[PostCSS](http://postcss.org/) is configured to process all CSS files with some default plugins including [autoprefixer](https://github.com/postcss/autoprefixer) to handle vendor prefixes automatically. Edit the `postcss.config.js` file to add and configure more plugins.
+
+[Babel](https://babeljs.io/) compiler is used so that next-gen JavaScript can be used as well.
 
 For seamless integration with Django — [django-webpack-loader](https://github.com/ezhome/django-webpack-loader) project is used.
+
+Read more about configuring [Webpack](https://webpack.js.org/configuration/).
 
 ## Deployment
 
