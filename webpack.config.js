@@ -14,24 +14,24 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
+        use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!postcss-loader'
-        })
+        }))
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
+        use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!postcss-loader!sass-loader'
-        })
+        }))
       },
       {
         test: /\.sass$/,
-        use: ExtractTextPlugin.extract({
+        use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!postcss-loader!sass-loader?indentedSyntax'
-        })
+        }))
       },
       {
         test: /\.js$/,
@@ -64,6 +64,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new ExtractTextPlugin('style.css')
+  ],
   devServer: {
     historyApiFallback: true,
     noInfo: true,
@@ -80,8 +83,7 @@ if (process.env.NODE_ENV === 'development') {
   module.exports.entry = module.exports.entry.concat(['webpack-dev-server/client?http://localhost:3000'])
   module.exports.output.publicPath = 'http://localhost:3000/static/bundles/'
   module.exports.plugins = (module.exports.plugins || []).concat([
-    new BundleTracker({filename: './static/webpack-stats-dev.json'}),
-    new ExtractTextPlugin({disable: true})
+    new BundleTracker({filename: './static/webpack-stats-dev.json'})
   ])
 }
 
@@ -90,7 +92,6 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.output.publicPath = '/static/bundles/'
   module.exports.plugins = (module.exports.plugins || []).concat([
     new BundleTracker({filename: './static/webpack-stats.json'}),
-    new ExtractTextPlugin('style.css'),
     new webpack.DefinePlugin({'process.env': {NODE_ENV: '"production"'}}),
     new webpack.optimize.UglifyJsPlugin({sourceMap: true, compress: {warnings: false}}),
     new webpack.LoaderOptionsPlugin({minimize: true})
