@@ -1,3 +1,4 @@
+var ip = require('ip')
 var path = require('path')
 var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
@@ -5,7 +6,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   context: __dirname,
-  entry: ['./assets/js/main.js'],
+  entry: './assets/js/main.js',
   output: {
     path: path.resolve('./static/bundles/'),
     filename: "[name].js"
@@ -70,6 +71,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
+    host: '0.0.0.0',
     port: 3000,
     headers: {'Access-Control-Allow-Origin': '*'}
   },
@@ -80,8 +82,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  module.exports.entry = module.exports.entry.concat(['webpack-dev-server/client?http://localhost:3000'])
-  module.exports.output.publicPath = 'http://localhost:3000/static/bundles/'
+  module.exports.output.publicPath = `http://${ip.address()}:3000/static/bundles/`
   module.exports.plugins = (module.exports.plugins || []).concat([
     new BundleTracker({filename: './static/webpack-stats-dev.json'})
   ])
