@@ -15,21 +15,21 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
+        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!postcss-loader'
         }))
       },
       {
         test: /\.scss$/,
-        use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
+        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!postcss-loader!sass-loader'
         }))
       },
       {
         test: /\.sass$/,
-        use: ['extracted-loader'].concat(ExtractTextPlugin.extract({
+        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!postcss-loader!sass-loader?indentedSyntax'
         }))
