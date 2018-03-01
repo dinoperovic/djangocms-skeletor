@@ -17,11 +17,14 @@ npm install
 python manage.py migrate
 ```
 
-This project assumes use of [Webpack](https://webpack.js.org/) to bundle and manage your static files. To start watching static files with Webpack along with Django development server you can use [Honcho](https://github.com/nickstenning/honcho) wich is already installed. Simply run:
+This project assumes use of [Webpack](https://webpack.js.org/) to bundle and manage your static files. To start watching static files with Webpack along with Django development server you can use [Honcho](https://github.com/nickstenning/honcho) which is already installed. Simply run:
 
 ```bash
 honcho start
 ```
+
+Both **Django** and **Webpack** development servers are configured to run without local host restrictions, which means you can immediately access your site with other devices on the same local network by navigating to `http://<local_ip_address>:8000`.
+
 
 ## Configuration
 
