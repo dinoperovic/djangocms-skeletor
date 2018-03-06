@@ -10,3 +10,4 @@
 /static/webpack-stats-dev.json
 __pycache__/
 db.sqlite3
+yarn-error.log
