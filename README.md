@@ -6,15 +6,15 @@
 
 ## Get started
 
-To start a new project:
+Make make sure you have [pipenv](https://docs.pipenv.org/) installed. Then inside your `virtualenv` run:
 
 ```bash
 pip install Django==1.11.10
 django-admin startproject --template https://github.com/dinoperovic/djangocms-skeletor/archive/master.zip -e py,md,env,json project_name
 cd project_name
-pip install -r requirements/dev.txt
 npm install
-python manage.py migrate
+pipenv install --dev
+pipenv run python manage.py migrate
 ```
 
 This project assumes use of [Webpack](https://webpack.js.org/) to bundle and manage your static files. To start watching static files with Webpack along with Django development server you can use [Honcho](https://github.com/nickstenning/honcho) which is already installed. Simply run:

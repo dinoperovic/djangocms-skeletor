@@ -3,6 +3,7 @@
 .DS_Store
 .env
 .sass-cache
+/.venv/
 /locale/
 /node_modules/
 /public/
