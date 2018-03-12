@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{% block title %}{% page_attribute "page_title" %}{% endblock %} - {{ request.site.name }}</title>
 <meta name="description" content="{% block meta_description %}{% page_attribute "meta_description" %}{% endblock %}">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="canonical" href="{% block link_canonical %}{{ request.scheme }}://{{ request.site }}{{ request.path }}{% endblock %}">
 
 {% addtoblock "css" %}
