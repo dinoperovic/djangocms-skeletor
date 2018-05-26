@@ -36,7 +36,7 @@ Read more about this project on [ReadTheDocs](https://django-configurations.read
 
 #### Dotenv
 
-A [django-dotenv](https://github.com/jpadilla/django-dotenv) project is included to enable setting environment variables through the `.env` file in your project root. This file will be downloaded when starting a new project but is included in the `.gitignore` file. It should be unique for each of the enviromnents you install your project in.
+A [python-dotenv](https://github.com/theskumar/python-dotenv) project is included to enable setting environment variables through the `.env` file in your project root. This file will be downloaded when starting a new project but is included in the `.gitignore` file. It should be unique for each of the enviromnents you install your project in.
 
 ## Webpack
 
@@ -60,10 +60,4 @@ npm run build
 
 This will generate an output in `static/bundles/` directory so that it gets included when running `collectstatic` from Django.
 
-[Fabric](http://www.fabfile.org/) can be used for deployment via git. Edit the `fabfile.py` to update hosts for **staging** and **production** servers and set paths for *project* and *virtualenv* on the server.
-
-To deploy to a production server you can then run:
-
-```bash
-fab production deploy
-```
+[Fabric](http://www.fabfile.org/) is included with a blank `fabfile.py` file.

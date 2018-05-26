@@ -5,9 +5,8 @@ from __future__ import unicode_literals
 import os
 import sys
 
-import dotenv
-
-dotenv.read_dotenv()
+from dotenv import load_dotenv
+load_dotenv(override=True)
 
 
 if __name__ == '__main__':

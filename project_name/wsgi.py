@@ -3,12 +3,8 @@ from __future__ import unicode_literals
 
 import os
 
-import dotenv
-
-try:
-    dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
-except Exception as e:
-    print(e)
+from dotenv import load_dotenv
+load_dotenv(override=True)
 
 
 settings = os.getenv('ENVIRONMENT', 'production')
