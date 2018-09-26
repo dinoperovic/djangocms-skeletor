@@ -1,100 +1,55 @@
-var ip = require('ip')
-var path = require('path')
-var webpack = require('webpack')
-var BundleTracker = require('webpack-bundle-tracker')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ip = require('ip')
+const path = require('path')
+const BundleTracker  = require('webpack-bundle-tracker')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
-module.exports = {
-  context: __dirname,
+var config = {
   entry: './assets/js/main.js',
   output: {
-    path: path.resolve('./static/bundles/'),
+    path: path.resolve(__dirname, 'static/bundles'),
+    publicPath: '/static/bundles/',
     filename: "[name].js"
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!postcss-loader'
-        }))
-      },
-      {
-        test: /\.scss$/,
-        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!postcss-loader!sass-loader'
-        }))
-      },
-      {
-        test: /\.sass$/,
-        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!postcss-loader!sass-loader?indentedSyntax'
-        }))
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'images/[name].[hash:7].[ext]'
-        }
-      },
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'media/[name].[hash:7].[ext]'
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
-        }
-      }
+      // Styles.
+      {test: /\.css$/, use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']},
+      {test: /\.scss$/, use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']},
+      {test: /\.sass$/, use: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader?indentedSyntax']},
+
+      // Javascript.
+      {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+
+      // Images, media & fonts.
+      {test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, loader: 'url-loader', options: {limit: 10000, name: 'images/[name].[hash:7].[ext]'}},
+      {test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/, loader: 'url-loader', options: {limit: 10000, name: 'media/[name].[hash:7].[ext]'}},
+      {test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/, loader: 'url-loader', options: {limit: 10000, name: 'fonts/[name].[hash:7].[ext]'}}
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new MiniCssExtractPlugin({filename: '[name].css'})
   ],
   devServer: {
+    headers: {'Access-Control-Allow-Origin': '*'},
     historyApiFallback: true,
-    noInfo: true,
     host: '0.0.0.0',
-    port: 3000,
-    headers: {'Access-Control-Allow-Origin': '*'}
-  },
-  performance: {
-    hints: false
-  },
-  devtool: '#eval-source-map'
+    port: 3000
+  }
 }
 
-if (process.env.NODE_ENV === 'development') {
-  module.exports.output.publicPath = `http://${ip.address()}:3000/static/bundles/`
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new BundleTracker({filename: './static/webpack-stats-dev.json'})
-  ])
-}
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.output.publicPath = `http://${ip.address()}:3000/static/bundles/`
+    config.plugins = (config.plugins || []).concat([
+      new BundleTracker({filename: './static/webpack-stats-dev.json'})
+    ])
+  }
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  module.exports.output.publicPath = '/static/bundles/'
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new BundleTracker({filename: './static/webpack-stats.json'}),
-    new webpack.DefinePlugin({'process.env': {NODE_ENV: '"production"'}}),
-    new webpack.optimize.UglifyJsPlugin({sourceMap: true, compress: {warnings: false}}),
-    new webpack.LoaderOptionsPlugin({minimize: true})
-  ])
+  if (argv.mode === 'production') {
+    config.plugins = (config.plugins || []).concat([
+      new BundleTracker({filename: './static/webpack-stats.json'})
+    ])
+  }
+
+  return config
 }
