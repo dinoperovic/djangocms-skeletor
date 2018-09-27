@@ -1,7 +1,7 @@
 const ip = require('ip')
 const path = require('path')
 const BundleTracker  = require('webpack-bundle-tracker')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 var config = {
   entry: './assets/js/main.js',
