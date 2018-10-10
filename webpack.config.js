@@ -33,7 +33,8 @@ var config = {
     headers: {'Access-Control-Allow-Origin': '*'},
     historyApiFallback: true,
     host: '0.0.0.0',
-    port: 3000
+    port: 3000,
+    stats: 'minimal'
   }
 }
 
