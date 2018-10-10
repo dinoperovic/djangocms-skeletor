@@ -1,6 +1,7 @@
 const ip = require('ip')
 const path = require('path')
 const BundleTracker  = require('webpack-bundle-tracker')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 var config = {
@@ -27,6 +28,7 @@ var config = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['static/bundles']),
     new MiniCssExtractPlugin({filename: '[name].css'})
   ],
   devServer: {

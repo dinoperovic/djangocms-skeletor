@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.1.0",
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.2",
+    "clean-webpack-plugin": "^0.1.19",
     "css-hot-loader": "^1.4.2",
     "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",
