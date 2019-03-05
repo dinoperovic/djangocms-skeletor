@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from cms.sitemaps import CMSSitemap
 from django.conf import settings
-from django.conf.urls import include, url
+from django.urls import include, path
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -15,7 +15,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 ]
 
 
@@ -27,12 +27,12 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # Add django-debug-toolbar urls.
 if getattr(settings, 'DEBUG_TOOLBAR', False):
     import debug_toolbar
-    urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls))]
+    urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]
 
 
 urlpatterns += i18n_patterns(
-    url(r'^admin/', admin.site.urls),
-    url(r'^translate/', include('rosetta.urls')),
-    url(r'^', include('cms.urls')),
-    prefix_default_language=True,
+    path('admin/', admin.site.urls),
+    path('translate/', include('rosetta.urls')),
+    path('', include('cms.urls')),
+    prefix_default_language=False,
 )
