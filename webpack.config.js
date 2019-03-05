@@ -28,7 +28,7 @@ var config = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['static/bundles']),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({filename: '[name].css'})
   ],
   devServer: {
