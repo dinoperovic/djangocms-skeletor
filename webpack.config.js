@@ -36,6 +36,7 @@ var config = {
     historyApiFallback: true,
     host: '0.0.0.0',
     port: 3000,
+    public: 'localhost:3000',
     stats: 'minimal'
   }
 }
